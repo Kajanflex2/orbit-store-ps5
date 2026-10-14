@@ -2,7 +2,7 @@
 
 Install **Orbit Zero on your computer**, then use it to upload and start Orbit on your PS5 over your local network. Your computer handles online downloads and sends the files to the console. **The PS5 can keep its internet access blocked throughout setup and use.**
 
-This guide covers **Orbit Zero 1.2.0** and the matching PS5 files from the [Orbit Store release](https://github.com/saawant12/orbit-store-ps5/releases/latest).
+This guide covers **Orbit Zero 1.3.0** and the matching PS5 files from the [Orbit Store release](https://github.com/saawant12/orbit-store-ps5/releases/latest).
 
 The desktop app includes the compatible Orbit service and uploads it over your local network. If an older Orbit service is already running, stop it before starting the new copy. See the [download choices and update steps](orbit-zero-installation.md).
 
@@ -14,6 +14,8 @@ The desktop app includes the compatible Orbit service and uploads it over your l
 - Enough free space on the computer for the full download and on the PS5 destination drive.
 
 Your **computer needs internet access to fetch new downloads**. Your PS5 only needs access to the computer over the local network. You do not need to download an ELF separately: Orbit Zero includes a compatible copy and can check GitHub for a compatible update from the computer.
+
+This guide names controls from the default Store interface. Other layouts keep the same connection and transfer flow; see [where to find settings after switching](appearance.md#find-settings-after-switching).
 
 ## 1. Keep the PS5 connected locally
 

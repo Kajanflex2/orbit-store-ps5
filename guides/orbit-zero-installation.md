@@ -4,13 +4,13 @@ Download on your computer and transfer to your PS5 over your home network. Wi-Fi
 
 **PS5 has no internet?** Follow [Set up Orbit on a PS5 without internet](https://github.com/saawant12/orbit-store-ps5/blob/main/guides/orbit-zero-offline-ps5.md) for the full local upload, pairing and optional native-app installation steps.
 
-This guide covers **Orbit Zero 1.2.0**. The download and transfer improvements from the earlier optional builds are now included as standard. The Mac app is Developer ID signed but is not yet notarized. Windows and Linux packages are unsigned.
+This guide covers **Orbit Zero 1.3.0**. The download and transfer improvements from the earlier optional builds are now included as standard. The Mac app is Developer ID signed but is not yet notarized. Windows and Linux packages are unsigned.
 
 Get the files from the [Orbit Store release](https://github.com/saawant12/orbit-store-ps5/releases/latest).
 
 ## Update Orbit Zero
 
-Quit Orbit Zero, then replace it using the installer or archive for your computer below. Your pairing and queue stay saved. In Orbit Store on the PS5, stop the running service under **App settings → Update / reinstall → Stop Orbit to restart**. Then open the new desktop app and use **Console → Start Orbit on PS5** to upload and start its included 1.2.0 service. The PS5 does not need internet for this step. Select **Resume** for any paused transfers.
+Quit Orbit Zero, then replace it using the installer or archive for your computer below. Your pairing and queue stay saved. In Orbit Store on the PS5, stop the running service under **App settings → Update / reinstall → Stop Orbit to restart**. Then open the new desktop app and use **Console → Start Orbit on PS5** to upload and start its included 1.3.0 service. The PS5 does not need internet for this step. Select **Resume** for any paused transfers.
 
 Install the matching native FFPKG if you use Orbit Store from the PS5 Games row. It carries the same updated service. Uploading a new ELF or replacing the FFPKG does not replace an already-running session.
 
@@ -18,12 +18,12 @@ Install the matching native FFPKG if you use Orbit Store from the PS5 Games row.
 
 | Computer | File |
 | --- | --- |
-| Mac with an Apple M-series chip | `Orbit-Zero-1.2.0-mac-arm64.dmg` |
-| Mac with an Intel processor | `Orbit-Zero-1.2.0-mac-x64.dmg` |
-| Windows on Intel or AMD | `Orbit-Zero-1.2.0-win-x64.zip` |
-| Windows on ARM, including Snapdragon | `Orbit-Zero-1.2.0-win-arm64.zip` |
-| Ubuntu or Debian on Intel or AMD | `Orbit-Zero-1.2.0-linux-amd64.deb` |
-| Ubuntu or Debian on ARM64 | `Orbit-Zero-1.2.0-linux-arm64.deb` |
+| Mac with an Apple M-series chip | `Orbit-Zero-1.3.0-mac-arm64.dmg` |
+| Mac with an Intel processor | `Orbit-Zero-1.3.0-mac-x64.dmg` |
+| Windows on Intel or AMD | `Orbit-Zero-1.3.0-win-x64.zip` |
+| Windows on ARM, including Snapdragon | `Orbit-Zero-1.3.0-win-arm64.zip` |
+| Ubuntu or Debian on Intel or AMD | `Orbit-Zero-1.3.0-linux-amd64.deb` |
+| Ubuntu or Debian on ARM64 | `Orbit-Zero-1.3.0-linux-arm64.deb` |
 
 On a Mac, check **Apple menu → About This Mac**. On Windows, check **Settings → System → About → System type**. On Linux, run `uname -m`: `x86_64` needs AMD64/x64; `aarch64` needs ARM64. In a virtual machine, choose the build for the guest operating system. 32-bit x86 is not supported.
 
@@ -34,19 +34,19 @@ Download **`SHA256SUMS`** from the same release as your desktop package. It cont
 **macOS, in Terminal:**
 
 ```sh
-shasum -a 256 "$HOME/Downloads/Orbit-Zero-1.2.0-mac-arm64.dmg"
+shasum -a 256 "$HOME/Downloads/Orbit-Zero-1.3.0-mac-arm64.dmg"
 ```
 
 **Windows, in PowerShell:**
 
 ```powershell
-Get-FileHash "$env:USERPROFILE\Downloads\Orbit-Zero-1.2.0-win-x64.zip" -Algorithm SHA256
+Get-FileHash "$env:USERPROFILE\Downloads\Orbit-Zero-1.3.0-win-x64.zip" -Algorithm SHA256
 ```
 
 **Linux, in a terminal:**
 
 ```sh
-sha256sum "$HOME/Downloads/Orbit-Zero-1.2.0-linux-amd64.deb"
+sha256sum "$HOME/Downloads/Orbit-Zero-1.3.0-linux-amd64.deb"
 ```
 
 Open `SHA256SUMS` in a text editor and find the line with the **exact same filename**. Its 64-character checksum must match your result; uppercase and lowercase letters are equivalent. If it differs, download the file again before installing. You only need the package for your computer, not every file listed in `SHA256SUMS`.
@@ -84,18 +84,18 @@ Use the `.deb` installer. It adds Orbit Zero to your application menu and sets u
 
    ```sh
    # Intel / AMD 64-bit
-   sudo apt install "$HOME/Downloads/Orbit-Zero-1.2.0-linux-amd64.deb"
+   sudo apt install "$HOME/Downloads/Orbit-Zero-1.3.0-linux-amd64.deb"
    ```
 
    ```sh
    # ARM64
-   sudo apt install "$HOME/Downloads/Orbit-Zero-1.2.0-linux-arm64.deb"
+   sudo apt install "$HOME/Downloads/Orbit-Zero-1.3.0-linux-arm64.deb"
    ```
 
 3. Enter your Linux password if asked. The installer needs administrator access; characters do not appear while typing the password. Internet access may be needed to install dependencies.
 4. Open **Orbit Zero** from your application menu. Do not run the app itself with `sudo`.
 
-**Saved the installer somewhere else?** Open a terminal in that folder and include `./` before its filename, for example `sudo apt install ./Orbit-Zero-1.2.0-linux-arm64.deb`. Without `./` or a full path, apt searches its package repositories and reports **Unable to locate package**. If `uname -m` says `aarch64`, use the ARM64 installer; AMD64 is for Intel/AMD computers.
+**Saved the installer somewhere else?** Open a terminal in that folder and include `./` before its filename, for example `sudo apt install ./Orbit-Zero-1.3.0-linux-arm64.deb`. Without `./` or a full path, apt searches its package repositories and reports **Unable to locate package**. If `uname -m` says `aarch64`, use the ARM64 installer; AMD64 is for Intel/AMD computers.
 
 If you are updating, quit Orbit Zero and install the new `.deb` the same way. Your saved pairing and queue stay in your user profile. When pairing or reconnecting, Ubuntu may ask you to unlock your login keyring; that stores the pairing securely.
 
@@ -121,7 +121,11 @@ sudo chmod 4755 chrome-sandbox
 
 ## Choose your language
 
-Select the globe-shaped **Language** button in the top bar. Orbit Zero 1.2.0 supports English, German, Spanish, French, Hungarian, Italian, Dutch, Polish, Brazilian Portuguese, Russian and Turkish. Choose **System language** to follow your computer. This changes Orbit’s interface, not a downloaded game’s language.
+Select the globe-shaped **Language** button in Store’s top bar, or **Settings → Language** in Crossbar, Cinema or Panorama. Orbit Zero 1.3.0 supports English, German, Spanish, French, Hungarian, Italian, Dutch, Polish, Brazilian Portuguese, Russian and Turkish. Choose **System language** to follow your computer. This changes Orbit’s interface, not a downloaded game’s language.
+
+## Choose your interface
+
+Use the palette-shaped **Appearance** button in Store’s top bar to choose Store, Crossbar, Cinema or Panorama. After switching, select **Keep** within 15 seconds. In the other layouts, return to **Settings → Appearance** to change it again. See the [appearance guide](appearance.md) for previews and motion/background options. Your choice is saved separately from the PS5 app’s appearance.
 
 ## Connect your PS5
 
@@ -144,8 +148,6 @@ Zero supplies the compatible Orbit payload automatically; you do not need to fin
 ### Manual fallback: download the ELF yourself
 
 Orbit Zero supplies the matching payload automatically. You can also download and select the ELF yourself:
-
-If you need to select the payload manually:
 
 1. On your **computer**, open the official [Orbit Store GitHub Releases page](https://github.com/saawant12/orbit-store-ps5/releases/latest). Under **Assets**, download **`orbit_store.elf`** and its matching **`orbit_store.elf.sha256`** checksum. Use the compatible Orbit Store build supplied with your Orbit Zero release; Zero requires Orbit Store 1.0.0 or later.
 2. Keep Payload Manager or your ELF loader running on the PS5. In Orbit Zero, open **Console**, enter the PS5's local IP address, and expand **Start Orbit on PS5**.
@@ -187,7 +189,7 @@ For new downloads, leave enough computer space for the full file. Keep Orbit Zer
 
 ## Choose how many games download at once
 
-In **Downloads → Download settings → Simultaneous computer downloads**, choose **1–8**. The default is **1**. Files transfer to your PS5 one at a time while computer downloads continue. Lowering the limit lets current downloads finish before another starts. Keep enough space for each file's full computer copy.
+In **Downloads → Download settings → Simultaneous computer downloads**, choose **1–8**. Crossbar, Cinema and Panorama also offer **Settings → Download settings**, with cache cleanup under **Settings → Computer cache**. The default is **1**. Files transfer to your PS5 one at a time while computer downloads continue. Lowering the limit lets current downloads finish before another starts. Keep enough space for each file's full computer copy.
 
 ## Choose the computer download folder
 
@@ -229,7 +231,7 @@ The improvements are now included in the standard packages. Follow **Update Orbi
 
 ## Update checks in Orbit Zero
 
-Select **Updates** in the top navigation to see your installed version or check manually. **Check for updates automatically** is on by default: Orbit Zero checks its official GitHub release on opening and every six hours, reusing a recent check when available. You can turn this off in the same window.
+Select **Updates** in Store’s top navigation, or **Settings → Updates** in the other interfaces, to see your installed version or check manually. **Check for updates automatically** is on by default: Orbit Zero checks its official GitHub release on opening and every six hours, reusing a recent check when available. You can turn this off in the same window.
 
 When **Update available** appears, select **Download update**. Zero selects the package for your operating system and processor, then checks its size and SHA-256 before offering **Open installer** (Mac/Linux) or **Open ZIP** (Windows). You can cancel an update download without affecting game transfers.
 

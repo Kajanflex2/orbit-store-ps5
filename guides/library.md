@@ -1,6 +1,6 @@
 # Your Library and storage
 
-Library is available in both the native TV app and browser version. Both read the same ShadowMount inventory and share storage operations.
+Library is available in both the native TV app and browser version. Both read the same ShadowMount inventory and share storage operations. Store, Crossbar, Cinema and Panorama present it in different layouts; changing [appearance](appearance.md) does not change which games are installed or mounted.
 
 ![Native TV app Library with installed and on-drive games](../assets/0.9.0/native-library.png)
 
@@ -23,7 +23,7 @@ These states can overlap. Search by title, title ID or path, and filter by statu
 
 Library uses the inventory reported by ShadowMount, while Browse uses Orbit’s download catalogue. Where a platform is known, PS4 and PS5 editions stay separate. Downloading a PS4 `.pkg` file does not make it an installed game or guarantee that ShadowMount can mount that format.
 
-To locate a completed Orbit Store download, open **Downloads → Finished → Location** in the browser or native app. That saved path is separate from the ShadowMount inventory. Orbit Zero does not yet show the full destination path; see [where downloads are saved](downloads.md#where-downloads-are-saved).
+To locate a completed Orbit Store download, open **Downloads → Finished → Location** in the browser or native app. That saved path is separate from the ShadowMount inventory. Orbit Zero download details show the PS5 destination and the computer path while the cached copy remains; see [where downloads are saved](downloads.md#where-downloads-are-saved).
 
 Use the PS4 package installation method supported by your PS5 setup. Library actions appear only when the provider supports them. See [PS4 games on PS5](downloads.md#ps4-games-on-ps5) before choosing a download.
 
@@ -47,4 +47,4 @@ Orbit does not launch games or uninstall them. Downloads and Library actions are
 
 *Pair a phone to inspect the same console inventory without changing download-source settings.*
 
-[Getting started](getting-started.md) · [Download guide](downloads.md) · [Troubleshooting](troubleshooting.md) · [Project home](../README.md)
+[Getting started](getting-started.md) · [Download guide](downloads.md) · [Troubleshooting](troubleshooting.md) · [Appearance guide](appearance.md) · [Project home](../README.md)

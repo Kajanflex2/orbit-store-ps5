@@ -26,7 +26,9 @@ Describe what should have happened.
 - PS5 firmware:
 - etaHEN version:
 - Payload manager or ELF loader:
-- Where it happens: native PS5 app / PS5 browser / Orbit Zero desktop / paired phone or computer
+- Where it happens: TV app (Games) / browser version (Media) / Orbit Zero desktop / paired phone or computer
+- Interface: Store / Crossbar / Cinema / Panorama
+- Input used: PS5 controller / keyboard / mouse / touch
 
 Use “unknown” if you cannot find a version.
 
@@ -64,7 +66,7 @@ Attach a screenshot of the error if possible.
 Immediately after reproducing the problem, before restarting Orbit:
 
 1. Open Orbit’s browser version.
-2. Go to App settings → Diagnostics → View diagnostics.
+2. In Store, go to App settings → Diagnostics → View diagnostics. In Crossbar, Cinema or Panorama, use Settings → Diagnostics → View diagnostics.
 3. Select Copy diagnostic report and paste it below.
 
 Recent diagnostic events reset when Orbit restarts. If Orbit cannot

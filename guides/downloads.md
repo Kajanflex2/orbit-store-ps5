@@ -1,14 +1,14 @@
 # Find and download a game
 
-Orbit 1.2.0 includes **1,201 games: 801 PS5 games and 400 PS4 games**, with single-file options from Archive.org, Vikingfile and AkiraBox. Each platform edition has its own game page; open it to choose from its available sources and formats. The selection depends on which sources you enable.
+Orbit 1.3.0 includes **1,601 games: 1,001 PS5 games and 600 PS4 games**, with single-file options from Archive.org, Vikingfile and AkiraBox. Each platform edition has its own game page; open it to choose from its available sources and formats. The selection depends on which sources you enable.
 
 ## Browse and choose
 
-**Discover opens first.** Explore the featured game and **New on Orbit** first, followed by **Latest releases**. New on Orbit starts with selected highlights, then shows recent additions ordered by game release date. Move down to All games for the full collection. Its grid shows 96 games per page, largest downloads first. Each game's size is its smallest available option from your enabled sources. Use Previous and Next to move between pages.
+**Discover opens first.** In the default Store interface, explore the featured game and **New on Orbit** first, followed by **Latest releases**. New on Orbit starts with selected highlights, then shows recent additions ordered by game release date. Move down to All games for the full collection. The grid loads more games as you scroll, largest downloads first. Each game's size is its smallest available option from your enabled sources.
 
-![Native Discover with the 1.2.0 catalogue](../assets/1.2.0/native-discover.png)
+![Store Discover in Orbit 1.3.0 with Uncharted 4 selected](../assets/1.3.0/store-discover-uncharted.png)
 
-*Native Discover with the 1.2.0 catalogue, rendered locally from the app. Browser and desktop Discover use the same featured order.*
+*Store Discover in Orbit 1.3.0, rendered locally from the browser app. Crossbar, Cinema and Panorama arrange the same collections differently; see the [appearance guide](appearance.md).*
 
 Switch to **Browse** when you want search and filters. It defaults to **Release date (newest first)**. Games without a recorded date follow alphabetically. Search by game name or title ID, filter by platform, source, format, region or download size, and change the sort order. **Reset filters** restores the default. Missing dates and other metadata can be added later through catalogue updates.
 
@@ -18,7 +18,7 @@ Switch to **Browse** when you want search and filters. It defaults to **Release 
 
 Save a game from its details page to find it under **Favourites** later; favourites are shared with your paired devices.
 
-In the native TV app, use D-pad/left stick to move, Cross to select, Circle to go back and L1/R1 to switch tabs. Press **Square** on a game selected in Browse or Discover to add or remove it from Favourites. Select filters with Cross; choose an option with the D-pad and Cross. The controls below apply to the browser version.
+In the native TV app’s Store interface, use D-pad/left stick to move, Cross to select, Circle to go back and L1/R1 to switch tabs. Press **Square** on a game selected in Browse or Discover to add or remove it from Favourites. Select filters with Cross; choose an option with the D-pad and Cross. In the other native interfaces, **Triangle** toggles favourites and navigation follows the layout’s on-screen hints; see [native controls by interface](appearance.md#controller-navigation-in-the-native-app). The controls below apply to the browser’s Store interface.
 
 | Input | Action |
 |---|---|
@@ -45,11 +45,25 @@ Files go to the selected drive’s `homebrew` folder, including `/data/homebrew/
 
 ## Pick a source, format and drive
 
+Settings paths in this guide use the Store layout. For the browser’s other layouts, see the [Settings page equivalents](appearance.md#find-settings-after-switching).
+
 On the game page, select the main download button to open **Download options**. This reviews your choices without starting a transfer. Open **Source** to choose a format and provider, **Download using** for direct or TorBox delivery, and **Save to** for storage attached to the PS5. The storage panel shows **Free now**, **Unfinished downloads**, and **After queue + this download**. Back returns to your previous selection.
 
 ![Download options with source, delivery method and destination](../assets/0.9.0/desktop-details.jpg)
 
 *Different sources can offer different formats or sizes for the same game. Select the exact option you intend to download.*
+
+### Which format to pick
+
+| Format | What you get | What to do after it's saved |
+|---|---|---|
+| **exFAT** | `.exfat` image | ShadowMountPlus mounts it. Nothing to install. |
+| **FFPFSC** | `.ffpfsc` image | ShadowMountPlus mounts it. Nothing to install. |
+| **Game folder** | A folder of game files, from an archive | ShadowMountPlus mounts it. Nothing to install. |
+| **PKG**, **FPKG** | `.pkg` package | Install it with a package installer. ShadowMountPlus doesn't mount packages, so the game won't appear in Library or on the home screen until it's installed. |
+| **ZIP**, **RAR**, **7z** | Archive | Orbit extracts it after downloading. The label shows what's inside, for example `7z · exFAT`; follow that row. |
+
+**PS5 FPKGs and firmware (October 2026):** PS5 FPKG games currently run only on firmware 11.60 or lower. On 12.xx and 13.xx they may install but won't start, until package support arrives for those firmwares. On those firmwares, choose exFAT or FFPFSC instead. Where a game offers exFAT or FFPFSC, those work without installing.
 
 For a direct option, select **Download to PS5**. Orbit checks the file and destination, then adds it to Downloads.
 
@@ -69,7 +83,7 @@ Orbit Zero also keeps a computer copy in your chosen [computer download folder](
 
 For downloads handled by Orbit Store, **Downloads → Finished → Location** shows the saved file or extracted folder path in both the browser and native app. This is the recorded save location; it does not check whether someone has since moved or deleted the file, and it does not mean the game is installed or listed by ShadowMount.
 
-Orbit Zero currently shows the filename without the full PS5 path. Check the selected drive's `homebrew` folder. Extracted downloads may be a file or a folder containing several files. Zero's **Computer download folder** setting controls new computer downloads; existing partial files stay in their original folder.
+Orbit Zero download details show **PS5 location** and **Computer location** while the cached copy remains. Files go to the selected drive's `homebrew` folder. Extracted downloads may be a file or a folder containing several files. Zero's **Computer download folder** setting controls new computer downloads; existing partial files stay in their original folder.
 
 ## Optional: download through TorBox
 
@@ -92,7 +106,7 @@ Pause and resume from Downloads as usual. Disconnecting TorBox pauses its unfini
 
 ## AkiraBox: verify, then wait
 
-**Requires Orbit Store or Orbit Zero 1.2.0.** Choose the AkiraBox option and destination, then open its download page from Orbit. Complete any human verification yourself and wait a few seconds. **Do not press AkiraBox’s Download button or an advertisement.** Orbit captures the ready file link and checks it against your selected game.
+**Requires Orbit Store or Orbit Zero 1.2.0 or later, with matching PS5 apps.** Choose the AkiraBox option and destination, then open its download page from Orbit. Complete any human verification yourself and wait a few seconds. **Do not press AkiraBox’s Download button or an advertisement.** Orbit captures the ready file link and checks it against your selected game.
 
 In Orbit’s PS5 browser version, you return to Orbit automatically when the file is queued. If you started from the native TV app, return to the app to follow verification or view the download. In Orbit Zero, the provider window closes once the matching file is ready, and the download appears in your queue.
 
@@ -100,7 +114,7 @@ If the session expires, start the provider step again. For an existing paused or
 
 ## ZIP, RAR and 7z downloads
 
-**Requires 1.2.0 and its matching apps.** Compressed options appear in the normal Format filter. Their displayed download size is the compressed archive size; keep space for both the archive and the extracted files. Multipart archives are not supported.
+**Requires 1.2.0 or later and matching apps.** Compressed options appear in the normal Format filter. Their displayed download size is the compressed archive size; keep space for both the archive and the extracted files. Multipart archives are not supported.
 
 Orbit Store extracts on the selected PS5 drive after downloading. Orbit Zero extracts on the computer first, then transfers the extracted files to your selected PS5 drive. Follow the **Extracting** progress in Downloads. Orbit tries the known source passwords automatically; see the [password list](../README.md#automatic-archive-extraction-120). If another password is needed, choose **Enter archive password**, then **Retry extraction**. This reuses the downloaded archive.
 

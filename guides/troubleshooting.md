@@ -1,5 +1,13 @@
 # When something needs attention
 
+Settings paths below use the default Store layout. In the browser’s other interfaces, use the [Settings page equivalents](appearance.md#find-settings-after-switching).
+
+## I see two Orbit icons
+
+That's normal if you use both PS5 versions. The icon in **Games** is the TV app from `PPSA99177.ffpkg`. The icon in **Media** is the browser version, added when `orbit_store.elf` runs. Both use the same downloads, favourites and service settings. Appearance is saved separately for each app or browser.
+
+If the Media icon won't open, see the next section. If the Games icon won't open, see [The native TV app will not open or start Orbit](#the-native-tv-app-will-not-open-or-start-orbit).
+
 ## Orbit or its icon does not open
 
 Start the Orbit payload through your manager, then reopen the Media-tab icon. The icon opens a running Orbit server and cannot start a stopped payload. If the icon was deleted, starting Orbit recreates it. Keep Orbit’s saved data when updating.
@@ -18,13 +26,32 @@ If ShadowMount reports **TitleDir bridge unavailable**, its app-registration bri
 
 If a TV app update still opens the previous version, close the app first. Restart the console and jailbreak when convenient so ShadowMountPlus can remount the replacement. The TV app and service have separate versions.
 
+## Orbit shows BlackBox's icon, can't connect or is missing after BlackBox
+
+BlackBox's builds up to v1.0.6 use Orbit's title ID, `ORBT00001`. If you installed one of them, Orbit's Media-tab icon may show BlackBox's logo, fail with "127.0.0.1 could not reach", or not appear at all. Removing BlackBox's payload alone doesn't fix this, because its app files stay on the console. These steps come from users who fixed it ([#42](https://github.com/saawant12/orbit-store-ps5/issues/42), [#39](https://github.com/saawant12/orbit-store-ps5/issues/39)).
+
+You need FTP access to the PS5, for example `ftpsrv` from your payload manager and FileZilla on a computer (port 2121). Delete only the items listed here.
+
+1. **Stop BlackBox from starting.** Remove `blackbox.elf` from your payload manager and turn off its auto-start.
+2. **Delete the home-screen icons.** On the PS5, delete BlackBox's icon from the Games row and Orbit's icon from the Media tab. Orbit's icon comes back in step 5.
+3. **Delete BlackBox's files over FTP:**
+   - `/user/app/BLKB00001`
+   - `PPSA01453` in `/data/homebrew/` (its TV app, a `.ffpkg` file or a folder)
+   - `/user/download/PPSA01453`
+   - `/data/shadowmount/icon-cache/PPSA01453*.png`
+   - its payload-manager folder, such as `/data/pldmgr/payloads/BlackBox`
+4. **Delete Orbit's icon folder, `/user/app/ORBT00001`.** Orbit rebuilds it the next time it starts. Keep `/data/orbit-store`: it holds your download queue and settings.
+5. **Restart and start Orbit.** Restart the console, run your jailbreak, then start `orbit_store.elf`. Open Orbit from the Media tab, or open the TV app from the Games row, which needs kstuff and ShadowMountPlus.
+
+If Orbit still shows BlackBox's icon, open a bug report with your firmware, your Orbit version and what you deleted.
+
 ## An update says Orbit is already running
 
 The replacement was saved for the next start. Open **App settings → Update / reinstall**, compare **Running** and **Saved for next start**, choose **Stop Orbit to restart**, then launch the saved `/data/orbit-store/orbit_store.elf` or a synced manager copy. Pairing and the queue stay saved. A manually imported old ELF starts that older copy unless you replace it.
 
 ## AkiraBox does not enter Downloads
 
-Use matching Orbit Store or Orbit Zero **1.2.0** apps. Open the file page from Orbit, complete verification and wait a few seconds without pressing Download. Orbit captures the ready link; avoid advertisements and popup buttons. If the session expires, return to Orbit and open the provider step again. For a paused or failed job, use **Refresh download link**.
+Use the latest matching Orbit Store or Orbit Zero apps. AkiraBox requires **1.2.0 or later**. Open the file page from Orbit, complete verification and wait a few seconds without pressing Download. Orbit captures the ready link; avoid advertisements and popup buttons. If the session expires, return to Orbit and open the provider step again. For a paused or failed job, use **Refresh download link**.
 
 ## Archive needs a password
 
@@ -68,6 +95,18 @@ For a transfer already created on the PS5, cancellation and stopping need a resp
 
 Keep both devices awake while transferring. See [transfer recovery and cleanup](orbit-zero.md#pause-reconnect-and-clean-up) for the differences between stopping, deleting partials and clearing completed computer copies.
 
+## I cannot find a setting after changing interface
+
+Crossbar, Cinema and Panorama use a **Settings** page in the browser and Orbit Zero. In Zero, Appearance, Language and Updates move there from Store’s top bar. The native app also calls its settings page **Settings** in these layouts, keeping the same sections inside. See the [settings map](appearance.md#find-settings-after-switching).
+
+## My interface choice switches back or is not remembered
+
+Select **Keep** before the 15-second confirmation countdown ends. **Switch back**, or not answering in time, restores the previous interface. To return to the default yourself, choose **Store** in Appearance and confirm it.
+
+Each app or browser saves its own appearance. A phone, native app and desktop app can use different layouts. Browser site-data clearing, private browsing or opening a different IP/hostname may reset the choice. If it still resets after confirmation on normal launches, report the app version, chosen interface and steps. See [where your choice is saved](appearance.md#where-your-choice-is-saved).
+
+For less movement, choose **Appearance → Motion → Reduced**. Cinema and Panorama also offer **Plain black** instead of background artwork behind menus or pages.
+
 ## A game or image is missing
 
 Check the enabled Sources and clear Browse’s filters. Then try **App settings → Game catalogue → Refresh catalogue**. Use the latest matching apps; PS4 support starts with service 1.1.0, native app 1.4.0 and Orbit Zero 1.1.0. Builds without PS4 support use a PS5-compatible catalogue. Select **Platform → All platforms** or **PS4**, and check the running service version as well as the installed app version.
@@ -78,15 +117,17 @@ Artwork comes from external URLs. Orbit tries an available fallback when the pri
 
 For downloads handled by Orbit Store, check **Downloads → Finished → Location** in the browser or native app. Use a file manager to check that exact saved path on the selected drive. Extracted downloads may be a folder containing several files. The recorded path remains in history even if a file is later moved or deleted.
 
-Orbit Zero currently shows the filename rather than the full destination path. Check the selected PS5 drive's [homebrew folder](downloads.md#where-downloads-are-saved). The computer download finishing is not enough; wait for **Transfer to PS5** to complete too.
+Orbit Zero download details also show the full PS5 destination path and the computer path while a cached copy remains. Check the selected PS5 drive's [homebrew folder](downloads.md#where-downloads-are-saved). The computer download finishing is not enough; wait for **Transfer to PS5** to complete too.
 
-If the file exists but does not appear in Library or on the home screen, check its format and the installation or mounting method supported by your console setup. A finished download is not automatically installed, and ShadowMount may not list every format. If the file is absent, include the app, game, source, format, destination and completion screen in your report; do not delete the queue or remaining files while investigating.
+If the file exists but does not appear in Library or on the home screen, check its format and the installation or mounting method supported by your console setup. A finished download is not automatically installed, and ShadowMount may not list every format. PKG and FPKG packages need installing first; see [below](#a-downloaded-pkg-or-fpkg-game-doesnt-appear). If the file is absent, include the app, game, source, format, destination and completion screen in your report; do not delete the queue or remaining files while investigating.
 
-## A downloaded PS4 game is not installed
+## A downloaded PKG or FPKG game doesn't appear
 
-Check the download’s platform, title ID and file format, and wait for the transfer to finish on the PS5. PS4 catalogue options are `.pkg` files labelled PKG or FPKG. Orbit saves them to the chosen drive’s `homebrew` folder; it does not install or launch them. Use the package installer supported by your PS5 setup. Copying a game package to the same folder as Orbit’s native app does not mean it will be registered in the same way.
+PKG and FPKG options are `.pkg` packages, for PS4 or PS5 games. Orbit saves them to the chosen drive's `homebrew` folder; it doesn't install them. ShadowMountPlus doesn't mount packages, so a package won't appear in Library or on the home screen, and **Scan for games** won't find it. Install it with the package installer supported by your PS5 setup, and check that installer's firmware support. PS5 FPKG games currently run only on firmware 11.60 or lower (October 2026); on 12.xx and 13.xx they may install but won't start. Copying a game package to the same folder as Orbit's native app does not register it the way the TV app is registered.
 
-If you report a problem, include the `CUSA` title ID, source, format, destination, app versions and whether it fails during the computer download, PS5 transfer or package installation. Do not share temporary signed links. See [PS4 games on PS5](downloads.md#ps4-games-on-ps5).
+If the game also offers exFAT or FFPFSC, those are mounted by ShadowMountPlus without installing. See [which format to pick](downloads.md#which-format-to-pick).
+
+If you report a problem, include the title ID (`CUSA` for PS4, `PPSA` for PS5), source, format, destination, app versions, any error code from the installer, and whether it fails during the computer download, PS5 transfer or package installation. Do not share temporary signed links. See [PS4 games on PS5](downloads.md#ps4-games-on-ps5).
 
 ## Share a diagnostic report
 
@@ -96,6 +137,6 @@ Open **App settings → Diagnostics → View diagnostics**, then **Copy diagnost
 
 *You choose whether to copy and share a report. This interface preview uses example diagnostic data.*
 
-When reporting a problem in [Issues](https://github.com/saawant12/orbit-store-ps5/issues), include the Orbit version, PS5 firmware, loader, the steps taken and the displayed error. Remove any private details before posting. The reported etaHEN payload-toggle interaction remains under investigation.
+When reporting a problem in [Issues](https://github.com/saawant12/orbit-store-ps5/issues), include the Orbit version, PS5 firmware, loader, the steps taken and the displayed error. For a display or navigation problem, include the interface (Store, Crossbar, Cinema or Panorama) and whether you used a controller, keyboard, mouse or touch. Remove any private details before posting. The reported etaHEN payload-toggle interaction remains under investigation.
 
-[Getting started](getting-started.md) · [Download guide](downloads.md) · [Library guide](library.md) · [Project home](../README.md)
+[Getting started](getting-started.md) · [Download guide](downloads.md) · [Library guide](library.md) · [Appearance guide](appearance.md) · [Project home](../README.md)
