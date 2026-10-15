@@ -1,6 +1,6 @@
 # Find and download a game
 
-Orbit 1.3.0 includes **1,601 games: 1,001 PS5 games and 600 PS4 games**, with single-file options from Archive.org, Vikingfile and AkiraBox. Each platform edition has its own game page; open it to choose from its available sources and formats. The selection depends on which sources you enable.
+Orbit 1.3.5 includes **1,598 games: 998 PS5 games and 600 PS4 games**, with single-file options from Archive.org, Vikingfile and AkiraBox. Each platform edition has its own game page; open it to choose from its available sources and formats. The selection depends on which sources you enable.
 
 ## Browse and choose
 
@@ -85,6 +85,18 @@ For downloads handled by Orbit Store, **Downloads → Finished → Location** sh
 
 Orbit Zero download details show **PS5 location** and **Computer location** while the cached copy remains. Files go to the selected drive's `homebrew` folder. Extracted downloads may be a file or a folder containing several files. Zero's **Computer download folder** setting controls new computer downloads; existing partial files stay in their original folder.
 
+## Archive.org sign-in
+
+**New in 1.3.5.** Some Archive.org downloads require an account. You can still use public downloads without signing in.
+
+- **Native PS5 app:** open **App settings → Archive.org** (or **Settings → Archive.org** in another interface).
+- **PS5 browser or paired device:** open **App settings → Archive.org**. In another browser interface, use **Settings → Archive.org**.
+- **Orbit Zero computer downloads:** open **Downloads → Download settings → Archive.org**. In another desktop interface, use **Settings → Download settings**.
+
+Enter your Archive.org email and password, select **Sign in**, and check that the panel shows **Signed in**. Then retry the download. The native app and browser share the PS5’s sign-in; Orbit Zero keeps a separate sign-in on the computer. If you use **Prefer PS5**, sign in on the PS5 as well for downloads routed there. Your password is not saved.
+
+The release removes 225 unavailable Archive.org options. Signing in helps with account-required files; it does not restore removed files. If the source page says the item is unavailable, choose another source or game option. You can sign out from the same account panel.
+
 ## Optional: download through TorBox
 
 **Available in 0.8.0 and later.** TorBox is an optional delivery choice for supported links. Update both Orbit’s service ELF and native FFPKG to use it in the TV app. You need your own TorBox account; its plan, host availability, quotas and file-size limits apply. You can keep using the original provider without connecting TorBox.
@@ -104,11 +116,15 @@ An account connection does not guarantee support for every file. If an option is
 
 Pause and resume from Downloads as usual. Disconnecting TorBox pauses its unfinished jobs and keeps their partial files. Reconnect the same account to resume them. Disconnecting does not remove files from your remote TorBox account.
 
+### TorBox in Orbit Zero
+
+**New in 1.3.5.** Open **Downloads → Download settings → TorBox**, or **Settings → Download settings** in another desktop interface. Connect your API key on the computer, then choose **Download using → TorBox** on a supported game option. Zero downloads to the computer and transfers to your selected PS5 drive. This account connection is separate from the PS5 service’s TorBox connection. Host availability, account limits and file-size limits still apply.
+
 ## AkiraBox: verify, then wait
 
 **Requires Orbit Store or Orbit Zero 1.2.0 or later, with matching PS5 apps.** Choose the AkiraBox option and destination, then open its download page from Orbit. Complete any human verification yourself and wait a few seconds. **Do not press AkiraBox’s Download button or an advertisement.** Orbit captures the ready file link and checks it against your selected game.
 
-In Orbit’s PS5 browser version, you return to Orbit automatically when the file is queued. If you started from the native TV app, return to the app to follow verification or view the download. In Orbit Zero, the provider window closes once the matching file is ready, and the download appears in your queue.
+With the matching 1.3.5 PS5 apps, Orbit captures the ready link and returns to the browser or native TV app automatically. In Orbit Zero, the provider window closes once the matching file is ready, and the download appears in your queue.
 
 If the session expires, start the provider step again. For an existing paused or failed AkiraBox download, use **Refresh download link**. Orbit reuses the partial file only if the refreshed link identifies the same file.
 
@@ -128,20 +144,20 @@ Orbit Store and Orbit Zero start one game at a time by default. Choose **1–8**
 
 ## Vikingfile: open the page on PS5 first
 
-**Starting in the native TV app?** Open **Download options**, choose your source and drive, then select **Open Vikingfile on PS5**. Vikingfile opens directly in the PS5 browser. Complete any verification, select **Download** on the provider page, then return to the native Orbit Store app. Orbit checks the file and queues it on your selected drive. You do not need to open Orbit's browser interface first. If the source or drive is no longer available, choose an available one explicitly.
+**Starting in the native TV app?** Open **Download options**, choose your source and drive, then select **Open Vikingfile on PS5**. Vikingfile opens directly in the PS5 browser. With the matching 1.3.5 PS5 apps, complete any verification and wait without pressing Download. Orbit captures the ready link and closes its provider window automatically. Orbit checks the file and queues it on your selected drive. You do not need to open Orbit's browser interface first. If the source or drive is no longer available, choose an available one explicitly.
 
 **Downloading through Orbit Zero?** Vikingfile opens on your computer instead. Complete any verification and select **Download** there. See the [Orbit Zero download steps](orbit-zero-installation.md#vikingfile-downloads).
 
-**Requires Orbit 0.5.0 or later.** Older versions keep their Archive.org catalogue and do not receive unsupported Vikingfile options.
+**Automatic capture requires the matching 1.3.5 PS5 apps.** Earlier Vikingfile flows require the Download click; update both the service and native app before following these steps.
 
 1. Select the Vikingfile option and destination drive in Orbit.
 2. Select **Open download page on PS5** in Orbit's browser interface, or **Open Vikingfile on PS5** in the native app. This opens the provider page on the console.
-3. Complete any verification yourself and select the provider’s **Download** button. Follow the file’s download controls if a redirect opens another Vikingfile page.
-4. Return to Orbit Store and open **Downloads**. Orbit checks that the captured file matches the selected option before adding it to your queue.
+3. Complete any verification yourself, then wait without pressing the provider’s **Download** button.
+4. Orbit checks the ready link against the selected file and returns automatically. Follow its progress in **Downloads**.
 
 ![Vikingfile instructions inside Download options](../assets/0.9.0/desktop-viking.jpg)
 
-*The Open download page on PS5 button starts the provider step. Download on Vikingfile comes next; then return to Orbit.*
+*This screenshot shows an older interface. In 1.3.5, complete verification and wait for automatic capture on PS5; you no longer need to press Vikingfile’s Download button.*
 
 You can start the session from a paired phone, but the provider page and verification still appear on the PS5. There is no need to paste a generated link. If the session expires or reports no matching file, return to Orbit and start that option again. Only one browser verification session can run at a time; **Cancel verification** stops the pending session without adding a download.
 

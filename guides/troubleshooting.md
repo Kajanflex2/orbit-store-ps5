@@ -53,13 +53,17 @@ The replacement was saved for the next start. Open **App settings → Update / r
 
 Use the latest matching Orbit Store or Orbit Zero apps. AkiraBox requires **1.2.0 or later**. Open the file page from Orbit, complete verification and wait a few seconds without pressing Download. Orbit captures the ready link; avoid advertisements and popup buttons. If the session expires, return to Orbit and open the provider step again. For a paused or failed job, use **Refresh download link**.
 
+## Archive.org reports HTTP 401, 403 or 404
+
+Some files need an Archive.org account. Follow [Archive.org sign-in](downloads.md#archiveorg-sign-in) in the app handling the download, then retry. The PS5 service and Orbit Zero keep separate account sessions. If the source page says the item was removed or is unavailable, signing in will not restore it; choose another source. An HTTP code alone does not prove which case applies.
+
 ## Archive needs a password
 
 Orbit automatically tries the [known source passwords](../README.md#automatic-archive-extraction-120). If the archive needs a different one, choose **Enter archive password**, enter the source’s password exactly, then **Retry extraction**. Keep the downloaded archive and enough free space for its extracted files. A corrupt or unsupported archive can still fail with the correct password.
 
 ## Vikingfile does not enter Downloads
 
-Use Orbit 0.5.0 or later and enable Vikingfile in Sources. Select the desired option and drive, press **Open download page on PS5**, complete any provider verification and press Download on the provider page, then return to Orbit. Verification happens on the PS5 even if you initiated it on your phone.
+Update both PS5 apps to the matching 1.3.5 release and enable Vikingfile in Sources. Select the desired option and drive, open its download page on PS5, complete verification and wait without pressing Download. Orbit captures the matching link and returns automatically. For computer downloads in Orbit Zero, complete verification and select the matching file’s Download button in its provider window. Verification happens on the PS5 even if you initiated it on your phone.
 
 If the session times out, the provider page changes or the browser restarts, return to Orbit and try that option again. Cancel an existing session before starting another. A file that does not match the selected option is not queued. Provider links may become unavailable.
 
@@ -83,17 +87,23 @@ Parallel connections can help only when supported by the host and file identity.
 
 ## An Orbit Zero transfer is stuck after sleep or disconnection
 
-Wake the computer and PS5, keep the original destination connected, and reconnect in **Console**. Start Orbit on the PS5 if its service stopped. Keep the original pairing and computer partial file, then select **Resume** on the interrupted transfer. Orbit checks the saved files before continuing; it does not start every paused transfer automatically.
+Wake the computer and PS5, keep the original destination connected, and reconnect in **Console**. Start Orbit on the PS5 if its service stopped. Keep the computer partial file, then select **Resume** on the interrupted transfer. If the PS5’s IP address or pairing changed, follow [address and pairing recovery](orbit-zero.md#reconnect-after-an-address-change). Orbit checks the saved files before continuing; it does not start every paused transfer automatically.
 
 If other games show **Waiting to transfer**, an earlier PS5 transfer may still hold their turn. In Downloads, choose the recovery action that matches what you want:
 
 - **Resume** to continue that transfer.
 - **Cancel and remove partials** to delete its unfinished files after confirmation and start fresh.
 - **Stop transfer** to keep remaining files and free the queue. **A stopped transfer cannot resume afterward.**
+- **Restart PS5 transfer**, when offered, to reuse the computer copy for a fresh PS5 transfer.
+- **Remove from Downloads** to clear a stuck entry while keeping its files. If the PS5 is still blocked afterward, use **Recover downloads → Review PS5 transfer**.
 
 For a transfer already created on the PS5, cancellation and stopping need a response from the original console. If it cannot confirm the operation, reconnect and retry. If Zero asks for a newer receiver, update both the desktop app and the PS5 service using [these steps](orbit-zero-installation.md#update-orbit-zero). The receiver is `orbit_store.elf`; installing only the desktop update does not replace a running PS5 service.
 
 Keep both devices awake while transferring. See [transfer recovery and cleanup](orbit-zero.md#pause-reconnect-and-clean-up) for the differences between stopping, deleting partials and clearing completed computer copies.
+
+## I removed a download but still have its computer cache
+
+In Orbit Zero 1.3.5, open **Downloads → Recover downloads** and choose the completed `.cache` file. Keep its original name and folder. Review the matching game and destination, add it back to the queue, then select **Resume**. See [cache recovery](orbit-zero.md#recover-a-completed-computer-download) for checks and limits.
 
 ## I cannot find a setting after changing interface
 

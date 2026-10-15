@@ -20,7 +20,7 @@ Orbit Zero includes PS4 and PS5 browsing and the same 11 interface languages as 
 
 ## PS4 and PS5 games
 
-The catalogue includes both platforms. The current release pairs **Orbit Store 1.3.0**, **native app 1.6.0** and **Orbit Zero 1.3.0**. PS4 support starts with service 1.1.0, native app 1.4.0 and Zero 1.1.0; archive extraction and AkiraBox need the current matching apps. In Browse, choose **Platform → PS4**, **PS5** or **All platforms**. A PS4 and a PS5 edition of the same game have separate download choices.
+The catalogue includes both platforms. The current release pairs **Orbit Store 1.3.5**, **native app 1.7.0** and **Orbit Zero 1.3.5**. PS4 support starts with service 1.1.0, native app 1.4.0 and Zero 1.1.0; archive extraction and AkiraBox need the current matching apps. In Browse, choose **Platform → PS4**, **PS5** or **All platforms**. A PS4 and a PS5 edition of the same game have separate download choices.
 
 Orbit itself runs on PS5. Downloading a PS4 PKG/FPKG saves a package to your selected drive; installing and launching it uses the compatible tools for your PS5 setup. See [PS4 games on PS5](downloads.md#ps4-games-on-ps5).
 
@@ -46,7 +46,9 @@ Already using Orbit 0.6.0 or later? In the browser version, open **App settings 
 
 Both interfaces use the same service, catalogue, favourites and download queue. The TV app does not need a pairing code on the console. The native **App settings** page includes Download sources, Storage, Pair a device, Game catalogue, Updates and Appearance. **More settings → Open browser version** provides auto-start, payload-manager setup and diagnostics.
 
-To use optional TorBox downloads, connect your account in the browser’s **App settings → Debrid**. Both apps can then use it for supported options. See [TorBox setup](downloads.md#optional-download-through-torbox).
+To use optional TorBox downloads, connect your account in the browser’s **App settings → Debrid**. Both apps can then use it for supported options. Orbit Zero 1.3.5 also offers a separate computer-side TorBox connection in Download settings. See [TorBox setup](downloads.md#optional-download-through-torbox).
+
+For account-required Archive.org files, open **App settings → Archive.org** in either PS5 app and sign in. Orbit Zero has its own Archive.org panel under **Downloads → Download settings**. See [Archive.org sign-in](downloads.md#archiveorg-sign-in).
 
 A drive connected to your phone or computer is not a PS5 destination. Attach your external drive to the console; Orbit uses its `homebrew` folder when available.
 

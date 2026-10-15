@@ -4,7 +4,7 @@
 
 Orbit runs on your PS5. Browse games, compare their available sources and formats, and download a single file directly to the console or an attached drive. Open the native TV app from your Games row, or pair a phone or computer to manage the same queue over your local network.
 
-Explore **1,601 games: 1,001 PS5 games and 600 PS4 games**, with single-file options from Archive.org, Vikingfile and AkiraBox. Filter by platform, choose your source and save to your preferred drive. New games and corrected links arrive through catalogue updates.
+Explore **1,598 games: 998 PS5 games and 600 PS4 games**, with single-file options from Archive.org, Vikingfile and AkiraBox. Filter by platform, choose your source and save to your preferred drive. New games and corrected links arrive through catalogue updates.
 
 PS4 game browsing requires **Orbit Store 1.1.0** with its matching native app, or **Orbit Zero 1.1.0**. Orbit itself runs on PS5. See [PS4 games on PS5](guides/downloads.md#ps4-games-on-ps5) for package download and installation guidance.
 
@@ -21,6 +21,7 @@ PS4 game browsing requires **Orbit Store 1.1.0** with its matching native app, o
 - **Four ways to make it yours.** Choose Store, Crossbar, Cinema or Panorama, with motion and background options. See the [appearance guide](guides/appearance.md).
 - **Your queue, your pace.** Pause, resume, retry and reorder downloads. Choose 1–8 simultaneous games, with one active download by default. Check the space they need before adding more.
 - **Optional TorBox downloads.** Connect your own account to use TorBox for supported links, or download directly from the original provider. See [TorBox setup](guides/downloads.md#optional-download-through-torbox) for account and host limits.
+- **Archive.org sign-in.** Sign in from the PS5 apps or Orbit Zero to access downloads that require an account. See [account setup](guides/downloads.md#archiveorg-sign-in).
 - **A Library for your drives.** See installed games and available files. Manage compatible sources through ShadowMount.
 - **Control from your phone.** Pair once to browse, queue downloads and check progress on the same PS5.
 - **Updates when you choose.** Orbit tells you when an update is available. In the TV app, open **App settings → Updates** to manage the TV app and download service separately. Installation, restart and payload-manager setup remain your choice.
@@ -42,7 +43,7 @@ For direct console downloads, you need a PS5 that can run homebrew ELF payloads,
 
 1. **Choose how to open Orbit.** Download the files from the [latest release](https://github.com/saawant12/orbit-store-ps5/releases/latest), verify them and follow the table above. Use the Games version, the Media version or both.
 2. **Choose your sources.** Choose sources in the TV app’s setup screen or **App settings → Download sources**. Select the sources you want to use, including Archive.org, Vikingfile and AkiraBox, and acknowledge the download notice. Your choices apply across both versions.
-3. **Pick a download.** Open a game and select its main download button to review **Download options**. Choose **Source**, **Download using** and **Save to**, then confirm the download. Direct options download from the TV app. Vikingfile browser options open the provider page on the PS5, keeping your selected game, source and drive. Choose **Open Vikingfile on PS5** in the native app or **Open download page on PS5** in the browser version, press **Download** on Vikingfile, then return to Orbit. For **AkiraBox**, complete verification and wait without pressing its Download button. The browser version returns to Orbit automatically once the file is ready; native-app users can return to the TV app to follow progress.
+3. **Pick a download.** Open a game and select its main download button to review **Download options**. Choose **Source**, **Download using** and **Save to**, then confirm the download. Direct options download from the TV app. Vikingfile browser options open the provider page on the PS5, keeping your selected game, source and drive. Choose **Open Vikingfile on PS5** in the native app or **Open download page on PS5** in the browser version. For **Vikingfile and AkiraBox**, complete verification and wait without pressing Download. Orbit captures the matching link and returns to the app automatically.
 4. **Follow your queue.** Open Downloads on the TV or a paired device to check progress, pause or resume.
 
 The TV app includes Orbit's download service and can start it through a compatible ELF loader on **port 9021**. You can also start `orbit_store.elf` yourself. The Media-tab shortcut opens the browser version while the service is running. After a reboot, start your jailbreak before opening Orbit. See the [setup and update guide](guides/getting-started.md) for installation, updates and phone pairing.
@@ -121,7 +122,7 @@ Pair a phone on the same network to find a game and choose its download option. 
 
 1. **Find a game.** Search the catalogue and filter the available games.
 2. **Compare options.** Check the format, size and destination before downloading.
-3. **Start the provider step.** Open Vikingfile on PS5, press Download there, then return to Orbit.
+3. **Start the provider step.** Open Vikingfile on PS5, complete verification and wait. Orbit captures the matching link and returns automatically.
 
 <p>
   <a href="assets/0.9.0/phone-browse.jpg"><img src="assets/0.9.0/phone-browse.jpg" width="250" align="top" alt="Step 1: Phone Browse with search and game cards"></a>
@@ -143,7 +144,9 @@ Download on your computer and transfer to your PS5 over your home network. Uncom
 - **Control downloads from either device.** Browse and manage the computer’s queue from the desktop or the matching native Orbit app on your PS5.
 - **Choose where downloads run.** Use **Computer** to download through your computer, or **Prefer PS5** to download directly when the console can reach the source. Save your preference once.
 - **Follow each stage.** See the download and PS5 transfer rates separately, plus extraction progress for archives, with controls to pause, resume and reconnect.
-- **Recover an interrupted transfer.** Reconnect and resume, remove partial files to start fresh, or stop a stuck transfer to free the queue. Stopping keeps files but prevents that transfer from resuming; [compare the recovery choices](guides/orbit-zero.md#pause-reconnect-and-clean-up).
+- **Recover an interrupted transfer.** Resume after a connection failure, reconnect your PS5 at its new address, or remove a stuck queue entry while keeping its files. [Compare the recovery choices](guides/orbit-zero.md#pause-reconnect-and-clean-up).
+- **Reuse completed computer downloads.** Recover a saved `.cache` file whose queue entry was removed, then transfer it without downloading it again. See [cache recovery](guides/orbit-zero.md#recover-a-completed-computer-download).
+- **Use your accounts on the computer.** Download settings includes Archive.org sign-in and TorBox for supported sources. Computer accounts are separate from the PS5 service’s accounts.
 - **Download more at once.** Download one game to your computer at a time by default, or choose 1–8 in Download settings. PS5 transfers run one at a time while computer downloads continue.
 
 [Install on Mac, Windows or Linux](https://github.com/saawant12/orbit-store-ps5/blob/main/guides/orbit-zero-installation.md) · [Set up a PS5 without internet](https://github.com/saawant12/orbit-store-ps5/blob/main/guides/orbit-zero-offline-ps5.md)
@@ -168,13 +171,13 @@ The desktop app supports **ARM64 and x64** computers and the same **11 interface
 
 ## Beta status
 
-**Orbit Store is an experimental beta.** [Download the latest release](https://github.com/saawant12/orbit-store-ps5/releases/latest). The matching components in release **1.3.0** have these version numbers:
+**Orbit Store is an experimental beta.** [Download the latest release](https://github.com/saawant12/orbit-store-ps5/releases/latest). The matching components in release **1.3.5** have these version numbers:
 
 | Component | Version |
 | --- | --- |
-| Orbit Store download service and browser interface (`orbit_store.elf`) | **1.3.0** |
-| Native TV app (`PPSA99177.ffpkg`) | **1.6.0** |
-| Orbit Zero for desktop | **1.3.0** |
+| Orbit Store download service and browser interface (`orbit_store.elf`) | **1.3.5** |
+| Native TV app (`PPSA99177.ffpkg`) | **1.7.0** |
+| Orbit Zero for desktop | **1.3.5** |
 
 The TV app has its own version number; these files belong to the same release. Use matching files when updating. Keep the PS5 awake while downloading or receiving transfers.
 
@@ -301,8 +304,8 @@ Source choices are saved on the console and shared by paired devices. Turning of
 
 ### Provider download steps
 
-- **Vikingfile:** open the provider page, complete verification, press **Download**, then return to Orbit.
-- **AkiraBox:** open the provider page, complete verification and **wait without pressing Download**. Orbit captures the ready link. The PS5 browser version returns to Orbit automatically; native-app users return to the TV app. Orbit Zero closes its provider window when the file is ready.
+- **Vikingfile on PS5:** open the provider page, complete verification and **wait without pressing Download**. Orbit captures the ready link and returns to the browser or native app automatically. In **Orbit Zero**, complete verification and select the matching file’s **Download** button in the computer’s provider window.
+- **AkiraBox:** open the provider page, complete verification and **wait without pressing Download**. Orbit captures the ready link and returns to the PS5 browser or native app automatically. Orbit Zero closes its provider window when the file is ready.
 
 On a paired phone, these steps open on the PS5. In Orbit Zero, they open on your computer. See the [full provider instructions](guides/downloads.md#akirabox-verify-then-wait).
 
@@ -334,6 +337,7 @@ When reporting a bug, follow the [bug report format](.github/ISSUE_TEMPLATE/bug_
 - **No storage:** if internal storage or your M.2 SSD disappeared in 0.9.0, update to the latest release, restart Orbit and refresh storage. For external drives, check that the drive is connected to the PS5. A drive connected to your computer is not PS5 storage.
 - **Drive disconnected:** reconnect the original destination. Orbit will not silently switch to internal storage.
 - **Not enough space:** free space on the selected destination before retrying.
+- **Archive.org asks for an account:** [sign in to Archive.org](guides/downloads.md#archiveorg-sign-in) in the app handling the download, then retry. Signing in cannot restore a file removed by its provider.
 - **Source changed:** preserve the partial file until you decide to remove it and restart. Orbit will not append a different file to it.
 - **“Provider returned a page” on an older version:** update to the latest release, restart Orbit, then open **Downloads → Failed → Retry download**. Existing partial files are checked before resuming. If the provider actually returns an error page, Orbit will still reject it.
 - **Provider throttling:** let the retry delay finish. Orbit respects the provider's `Retry-After` response.

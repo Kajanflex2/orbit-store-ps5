@@ -1,6 +1,6 @@
 # Choose your Orbit interface
 
-Orbit Store 1.3.0 and Orbit Zero 1.3.0 offer four interfaces: **Store**, **Crossbar**, **Cinema** and **Panorama**. For the native PS5 app, use **1.6.0**, included in the same release. Each changes the layout and navigation while keeping your catalogue, favourites and download queue.
+Orbit Store 1.3.5 and Orbit Zero 1.3.5 offer four interfaces: **Store**, **Crossbar**, **Cinema** and **Panorama**. For the native PS5 app, use **1.7.0**, included in the same release. Each changes the layout and navigation while keeping your catalogue, favourites and download queue.
 
 ## Switch interfaces
 
